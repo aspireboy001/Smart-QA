@@ -6,4 +6,4 @@ joblib
 Django
 gunicorn
 django-crispy-forms
-django-crispy-bootstrap5
+crispy-bootstrap5
