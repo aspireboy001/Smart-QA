@@ -5,3 +5,4 @@ scikit-learn
 joblib
 Django
 gunicorn
+django-crispy-forms
