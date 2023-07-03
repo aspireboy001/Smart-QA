@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+
+{% block title %} View Answer {% endblock %}
+
+
+
+{% block content %}
+<div class="container mt-3">
+    <div class="card mb-3">
+        <div class="card-header">
+            <h4 class="card-title">{{curr_question.title}}</h4>
+            <p class="card-subtitle mb-2 text-muted">by {{curr_question.author}}</p>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{curr_question.description}}</p>
+        </div>
+    </div>
+
+    {% for answer in answers %}
+    <div class="card mb-3">
+        <div class="card-body d-flex flex-row justify-content-between">
+            <p>{{answer.answer_text}}</p>
+        </div>
+        <div class="card-footer">
+            <p class="text-muted mb-0">Answered by {{answer.given_by}} on {{answer.given_at}}</p>
+        </div>
+    </div>
+    {% empty %}
+    <h5 class="text-muted">No Answers Yet.</h5>
+    {% endfor %}
+</div>
+
+{% endblock %}
+

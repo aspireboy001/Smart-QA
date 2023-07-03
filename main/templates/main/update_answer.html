@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Update Answer {% endblock %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <input type="hidden" name="method" value="PUT">
+    <div class="form-group">
+        <label for="answer_text"><strong>Question:</strong> {{ question_description }}</label>
+    </div>
+    <div class="form-group">
+        <label for="id_answer_text"><strong>Answer:</strong></label>
+        {{ form.answer_text|as_crispy_field }}
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success" type="submit">Update Answer</button>
+    </div>
+</form>
+
+
+{% endblock %}
+
+
+{% block styles %}
+<style>
+</style>
+{% endblock %}

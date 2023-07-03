@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Popular Questions {% endblock %}
+
+{% block content %}
+    <h1>Popular Keywords</h1>
+    <br/>
+    <div class="keywords">
+        {% for keyword in top_keywords %}
+            <a href="{% url 'each_popular' keyword=keyword %}" class="keyword">{{ keyword }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .keywords {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .keyword {
+        background-color: #f7c4d0;
+        padding: 8px;
+        margin: 8px;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .keyword:hover {
+        background-color: #ff9aa2;
+        color: #fff;
+    }
+</style>
+{% endblock %}

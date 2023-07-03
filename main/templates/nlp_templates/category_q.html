@@ -1,0 +1,75 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Top Categories {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-5">Top Categories</h1>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col-md-4 mb-4">
+            <a href="{% url 'each_category' catid=1 %}" class="card category-card ">
+              <div class="card-body">
+                <h2 class="card-title text-center mb-4">World</h2>
+                <p class="card-text">Questions related to world and news.</p>
+              </div>
+            </a>
+          </div>
+          
+          <div class="col-md-4 mb-4">
+            <a href="{% url 'each_category' catid=2 %}" class="card category-card bg-light">
+              <div class="card-body">
+                <h2 class="card-title text-center mb-4">Sports</h2>
+                <p class="card-text">Questions related to Sports and Games.</p>
+              </div>
+            </a>
+          </div>
+          
+          <div class="col-md-4 mb-4">
+            <a href="{% url 'each_category' catid=3 %}" class="card category-card ">
+              <div class="card-body">
+                <h2 class="card-title text-center mb-4">Business</h2>
+                <p class="card-text">Questions related to Business and Finance.</p>
+              </div>
+            </a>
+          </div>
+          
+          <div class="col-md-4 mb-4">
+            <a href="{% url 'each_category' catid=4 %}" class="card category-card bg-light">
+              <div class="card-body">
+                <h2 class="card-title text-center mb-4">Science</h2>
+                <p class="card-text">Questions related to Science and Technology.</p>
+              </div>
+            </a>
+          </div>
+         
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+.category-card {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    background-color: #FDEDEC;
+}
+
+.category-card:hover {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.category-card h2 {
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.category-card p {
+    font-size: 18px;
+    margin-bottom: 0;
+}
+</style>
+{% endblock %}

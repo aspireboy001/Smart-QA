@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Post Answer {% endblock %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <form method="post" action="">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="answer_text"><strong>Question:</strong> {{ question_description }}</label>
+                </div>
+                <div class="form-group">
+                    <label for="id_answer_text"><strong>Answer:</strong></label>
+                    {{ form.answer_text|as_crispy_field }}
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Post Answer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block styles %}
+
+<style>
+    form {
+        background-color: #f7f7f7;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+
+</style>
+{% endblock %}

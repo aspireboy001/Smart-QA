@@ -1,0 +1,105 @@
+{% extends 'main/base.html' %}
+
+{% block title %} My Posted Questions {% endblock %}
+
+
+{% block content %}
+    {% for question in my_questions %}
+        <div class="card mt-2">
+            <div class="card-header">
+                <strong>Asked By: {{ question.author.username }}</strong>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ question.title }}</h5>
+                <p class="card-text">{{ question.description }}</p>
+            </div>
+            {% for answer in my_answered %}
+                {% if answer.for_question_id == question.id %}
+                    <div class="card-body bg-light">
+                        <div class="row">
+                            <div class="col-10">
+                                <p class="card-text mb-0">{{ answer.answer_text }}</p>
+                            </div>
+                            <div class="col-2 d-flex justify-content-end align-items-center">
+                                <form method="post" action="{% url 'delete_answer' %}" onsubmit="return confirmDelete()">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="answer-id" value="{{ answer.id }}">
+                                    <button type="submit" class="btn btn-danger me-4">Delete</button>
+                                </form>
+                                <a href="{% url 'update_answer' question.id %}" class="btn btn-primary">Update</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <div class="card-footer text-muted">
+                <div class="float-end">
+                    {{ question.created_at }}
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <h1>Not Answered Yet</h1>
+    {% endfor %}
+
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this answer?');
+        }
+    </script>
+{% endblock %}
+
+
+{% block styles %}
+<style>
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .card-header {
+        background-color: #f7f7f7;
+        border-radius: 10px 10px 0 0;
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 10px 20px;
+    }
+
+    .card-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 1.1rem;
+    }
+
+    .bg-light {
+        background-color: #f7f7f7;
+        border-radius: 0 0 10px 10px;
+        padding: 10px 20px;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+    }
+</style>
+{% endblock %}

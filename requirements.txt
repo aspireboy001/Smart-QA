@@ -1,0 +1,7 @@
+nltk
+stopwords
+numpy
+scikit-learn
+joblib
+Django
+gunicorn
