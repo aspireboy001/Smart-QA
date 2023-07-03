@@ -11,11 +11,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import joblib
 import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(BASE_DIR, 'model2New.pkl')
-vectorizer_path = os.path.join(BASE_DIR, 'vectorizer2New.pkl')
-model = joblib.load(model_path)
-vectorizer = joblib.load(vectorizer_path)
+model = joblib.load('model2New.pkl')
+vectorizer = joblib.load('vectorizer2New.pkl')
 
 
 def get_tag(text):
