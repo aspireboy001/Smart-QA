@@ -21,3 +21,4 @@ class PostAnswer(forms.ModelForm):
         fields = ['answer_text']
 
 
+# Db Models

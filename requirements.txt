@@ -8,4 +8,3 @@ gunicorn
 django-crispy-forms
 crispy-bootstrap5
 contractions
-mysqlclient

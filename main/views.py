@@ -8,7 +8,6 @@ from .models import *
 from .utils import *
 import nltk , re
 
-# Create your views here.
 
 def home(request):
     allQuestions = Question.objects.all().order_by('-created_at') #posts
@@ -191,7 +190,7 @@ def keyword_list(request):
     for question in questions:
         data_string += question.title 
 
-    top_keywords = extract_keywords(data_string, num_keywords=20)
+    top_keywords = extract_keywords(data_string, num_keywords=10)
     
     return render(request, 'nlp_templates/popular_q.html', {'top_keywords': top_keywords})
 

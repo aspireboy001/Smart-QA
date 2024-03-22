@@ -96,6 +96,6 @@ def extract_keywords(text, num_keywords):
         if num_keywords <= 0 : 
             break
         num_keywords -= 1;
-        top_keywords.append(word)
-
+        top_keywords.append(word) # adding keyword to return
+    
     return top_keywords

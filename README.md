@@ -1,5 +1,5 @@
 # Project Title 
-SMART-QA
+Qna-Pro
 
 # Overview
 This project is a question and answer website where users can create an account, post their questions or doubts, and receive answers from other people. Users can also contribute by answering questions posted by others.
